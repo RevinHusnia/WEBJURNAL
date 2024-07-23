@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="sidebar">
+       <img src="/assets/menu.png" alt="">
             <ul>
                 <li><a href="/pages/home.php">Home</a></li>
                 <li><a href="/pages/total_hadir.php">Total Hadir</a></li>

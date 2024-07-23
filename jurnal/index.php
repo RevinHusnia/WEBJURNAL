@@ -3,4 +3,3 @@
 <h1>Welcome to the Dashboard</h1>
 
 <?php include 'partials/footer.php'; ?>
-!

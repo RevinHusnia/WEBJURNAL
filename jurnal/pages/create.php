@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO catatan (tanggal, catatan) VALUES ('$tanggal', '$catatan')";
     $conn->query($sql);
 
-    $sql = "INSERT INTO kegiatan (nama, tanggal, status, minggu_ke, kegiatan) VALUES ('$nama', '$tanggal', '$status', '$minggu_ke', '$kegiatan')";
+    $sql = "INSERT INTO kegiatan (nama, tanggal, status, minggu_ke, kegiatan, jumlahkegiatan) VALUES ('$nama', '$tanggal', '$status', '$minggu_ke', '$kegiatan', '$jumlahKegiatan')";
     $conn->query($sql);
 }
 ?>
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="text" id="nama" name="nama" required>
     <br>
     <label for="tanggal">Tanggal:</label>
-    <input type="date" id="tanggal" name="tanggal" required>
+    <input class="tanggal" type="date" id="tanggal" name="tanggal" required>
     <br>
     <label for="status">Status:</label>
     <select id="status" name="status" required>

@@ -7,9 +7,9 @@ $sql = "SELECT * FROM kegiatan";
 $result = $conn->query($sql);
 ?>
 
-<h1>Total Hadir</h1>
+<h1>Total Kegiatan</h1>
 <div class="table-container">
-    <h2>Data Kehadiran</h2>
+    <h2>Data Kegiatan</h2>
     <table>
         <thead>
             <tr>
