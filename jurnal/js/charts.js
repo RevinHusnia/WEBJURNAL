@@ -62,3 +62,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetch initial data for Weekly view
     fetchData('weekly');
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.sidebar ul li a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            links.forEach(lnk => lnk.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Set the active link based on the current URL
+    const currentPath = window.location.pathname;
+    links.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+});
