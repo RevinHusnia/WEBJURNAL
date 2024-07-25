@@ -16,7 +16,7 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(4px);
 }
 
 .login-box {
@@ -24,7 +24,7 @@ body {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(30px);
     text-align: center;
     width: 300px;
 }

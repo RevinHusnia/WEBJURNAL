@@ -8,6 +8,7 @@
                 <li><a href="/pages/kegiatan.php" id="kegiatan"><img src="/assets/hard-work.png" alt="Kegiatan Icon"></a></li>
                 <li><a href="/pages/catatan.php" id="catatan"><img src="/assets/sticky-notes.png" alt="Catatan Icon"></a></li>
                 <li><a href="/pages/create.php" id="create"><img src="/assets/plus.png" alt="Create Icon"></a></li>
+                <li><a href="/pages/login.php" id="create"><img src="/assets/hacker.png" alt="Create Icon"></a></li>
             </ul>
         </div>
     </div>

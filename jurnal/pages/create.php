@@ -1,4 +1,22 @@
 <?php
+session_start();
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+// Hapus sesi login saat halaman di-refresh
+if (!isset($_SESSION['refresh'])) {
+    $_SESSION['refresh'] = true;
+} else {
+    unset($_SESSION['loggedin']);
+    unset($_SESSION['refresh']);
+    header("Location: login.php");
+    exit;
+}
+
 include '../partials/header.php';
 include '../db/db.php';
 
@@ -12,12 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jumlahKegiatan = $_POST['jumlahkegiatan'];
     $catatan = $_POST['catatan'];
 
+    $stmt = $conn->prepare("INSERT INTO catatan (tanggal, catatan) VALUES (?, ?)");
+    $stmt->bind_param("ss", $tanggal, $catatan);
+    $stmt->execute();
 
-    $sql = "INSERT INTO catatan (tanggal, catatan) VALUES ('$tanggal', '$catatan')";
-    $conn->query($sql);
-
-    $sql = "INSERT INTO kegiatan (nama, tanggal, status, minggu_ke, kegiatan, jumlahkegiatan) VALUES ('$nama', '$tanggal', '$status', '$minggu_ke', '$kegiatan', '$jumlahKegiatan')";
-    $conn->query($sql);
+    $stmt = $conn->prepare("INSERT INTO kegiatan (nama, tanggal, status, minggu_ke, kegiatan, jumlahkegiatan) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $nama, $tanggal, $status, $minggu_ke, $kegiatan, $jumlahKegiatan);
+    $stmt->execute();
 }
 ?>
 
@@ -41,8 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="kegiatan">Kegiatan:</label>
     <input type="text" id="kegiatan" name="kegiatan" required>
     <br>
-    <br>
-    <label for="kegiatan">Jumlah Kegiatan:</label>
+    <label for="jumlahkegiatan">Jumlah Kegiatan:</label>
     <input type="text" id="jumlahkegiatan" name="jumlahkegiatan" required>
     <br>
     <label for="catatan">Catatan:</label>
